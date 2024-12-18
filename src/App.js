@@ -3,8 +3,36 @@ import './style.css';
 import MOOD from './img/MOOD.png'
 import logo from './img/Logo-icon.svg'
 import tg_logo from './img/Telegram App.svg'
+import { useState } from 'react'
+
+const ModalWindow = () => {
+  return (
+    <div id="myModal" class="modal">
+                    <div class="modal-conf-content">
+                        <span class="close">&times;</span>
+                        <h2 class="modal-conf-title">АВТОРИЗАЦИЯ</h2>
+                        <div class="modal-conf-item">
+                            <input class="checkbox" id="checkbox" type="checkbox" />
+                            <p class="modal-conf-text">Я согласен(на) на обработку предоставленных мной персональных данных в соответствии с политикой конфиденциальности сайта.</p>
+                        </div>
+                        <button id="telegramAuthBtn" class="modal-conf-btn">Войти</button>
+                    </div>
+                </div>
+  )
+}
 
 const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+      console.log("bebra")
+      setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
+
     return (
       <header class="header" id="header">
             <div class="container header-container">
@@ -21,18 +49,8 @@ const Header = () => {
                         <a href="#about" class="menu-item">О нас</a>
                     </div>
                 </nav>
-                <button class="btn" id="openModalBtn">Бамб -&gt;</button>
-                <div id="myModal" class="modal">
-                    <div class="modal-conf-content">
-                        <span class="close">&times;</span>
-                        <h2 class="modal-conf-title">АВТОРИЗАЦИЯ</h2>
-                        <div class="modal-conf-item">
-                            <input class="checkbox" id="checkbox" type="checkbox" />
-                            <p class="modal-conf-text">Я согласен(на) на обработку предоставленных мной персональных данных в соответствии с политикой конфиденциальности сайта.</p>
-                        </div>
-                        <button id="telegramAuthBtn" class="modal-conf-btn">Войти</button>
-                    </div>
-                </div>
+                <button class="btn" id="openModalBtn" onClick={openModal}>Бамб -&gt;</button>
+                {isModalOpen && (<ModalWindow />)}
             </div>
         </header>
     )
@@ -138,7 +156,7 @@ const Footer = () => {
                         <a href="#" class="footer-item-link">Управление файлами cookies</a>
                     </div>
                 </div>
-                <div class="footear-social">
+                <div class="footer-social">
                     <img src={tg_logo} alt="#" class="social-img" />
                 </div>
             </div>
@@ -146,8 +164,8 @@ const Footer = () => {
   )
 }
 
-function App() {
-  return(
+function MainPage() {
+  return (
     <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -164,9 +182,13 @@ function App() {
             <About />
         </main>
         <Footer />
-        <script src="script.js"></script>
     </body>
     </html>
+  )
+}
+function App() {
+  return(
+    <MainPage />
   );
 }
 
