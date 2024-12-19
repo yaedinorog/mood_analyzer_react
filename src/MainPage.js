@@ -4,6 +4,7 @@ import tg_logo from './img/Telegram App.svg';
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import TelegramLoginButton from 'react-telegram-login';
+import axios from 'axios';
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

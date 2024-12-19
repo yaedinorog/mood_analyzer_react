@@ -7,6 +7,7 @@ import MainPage from "./MainPage";
 import ScrollToTop from './ScrollToTop';
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Chats from './Chats';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/conf" element={<Conf />} />
       <Route path="/Cookies" element={<Cookies />} />
+      <Route path="/Chats" element={<Chats />} />
     </Routes>
   </BrowserRouter>
   )
