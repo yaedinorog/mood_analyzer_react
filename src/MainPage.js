@@ -82,7 +82,7 @@ const Header = () => {
 
     return( 
       <div className="work" id="work">
-        <TelegramLoginButton dataOnAuth={handleTelegramResponse} botName="Mood_Auth" />
+        <TelegramLoginButton dataOnAuth={handleTelegramResponse} botName="Mood_auth_bot" />
                   <div className="container work-container">
                       <h2 className="work-title">Как это работает</h2>
                       <div className="work-content">
