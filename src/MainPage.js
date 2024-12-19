@@ -21,6 +21,10 @@ const Header = () => {
         closeModal();
       }
     };
+
+    const handleTelegramResponse = (response) => {
+      console.log(response);
+  }
   
       return (
         <header className="header">
@@ -48,10 +52,7 @@ const Header = () => {
                               <input className="checkbox" type="checkbox" />
                               <p className="modal-conf-text">Я согласен(на) на обработку предоставленных мной персональных данных в соответствии с политикой конфиденциальности сайта.</p>
                           </div>
-                          <button className="modal-conf-btn" onClick={() => {
-                                const url = 'https://t.me/Mood_auth_bot?start=auth';
-                                window.location.href = url;
-                              }}>Войти</button>
+                          <TelegramLoginButton className="modal-conf-btn" dataOnAuth={handleTelegramResponse} usePic={false} botName="Mood_auth_bot" requestAccess={false}/>
                       </div>
                   </div>
                 )}
@@ -75,14 +76,8 @@ const Header = () => {
   }
   
   const MainText = () => {
-    const handleTelegramResponse = (response) => {
-        console.log(response);
-    }
-
-
     return( 
       <div className="work" id="work">
-        <TelegramLoginButton dataOnAuth={handleTelegramResponse} usePic={false} botName="Mood_auth_bot" requestAccess={false}/>
                   <div className="container work-container">
                       <h2 className="work-title">Как это работает</h2>
                       <div className="work-content">
